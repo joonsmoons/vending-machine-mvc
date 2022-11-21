@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>자판기</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="./main.js" defer></script>
+  </head>
+  <body>
+    <main class="machine">
+      <h2 class="header">음료수 자판기🍹</h2>
+      <a
+        href="https://github.com/joonsmoons/thegreat-bootcamp/tree/dev/99_projects/vending_machine"
+        target="_blank"
+        ><i class="fa fa-github icon"></i
+      ></a>
+      <div></div>
+      <section class="drink-box container">
+        <div class="label">음료수</div>
+        <div class="drinks"></div>
+      </section>
+
+      <section class="input-box container">
+        <div class="label">사용자 입력</div>
+        <div class="section balance">
+          <div class="col-6 text-balance">내 지갑</div>
+          <div class="col-6 customer-balance money"></div>
+        </div>
+        <div class="section">
+          <div class="coins">
+            <div>
+              <div id="coin-100" class="coin-img"></div>
+              <button class="coin" value="100">100원 투입</button>
+            </div>
+            <div>
+              <div id="coin-500" class="coin-img"></div>
+              <button class="coin" value="500">500원 투입</button>
+            </div>
+            <div>
+              <div id="coin-1000" class="coin-img"></div>
+              <button class="coin" value="1000">1,000원 투입</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="section balance">
+          <div class="text-balance col-6">투입금액</div>
+          <div class="display-balance money col-6"></div>
+        </div>
+
+        <div class="section balance">
+          <div class="text-balance col-6">자판기에 저장된 금액</div>
+          <div class="machine-wallet money col-6"></div>
+        </div>
+        <div class="section">
+          <button class="return">잔돈반환</button>
+        </div>
+      </section>
+
+      <section class="section output-box container">
+        <div class="label">메세지</div>
+        <div class="output">투입 금액을 선택해주세요.</div>
+      </section>
+      <div class="footer">© 2022 이준수. All rights reserved.</div>
+    </main>
+  </body>
+</html>
