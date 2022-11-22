@@ -154,10 +154,11 @@ button:hover {
 
 .drink-img {
   height: 50px;
-  width: 30px;
+  width: 100%;
   margin-bottom: 0.5em;
   background-repeat: no-repeat;
   background-size: contain;
+  background-position: center;
 }
 
 #img-1 {
@@ -225,14 +226,11 @@ button:hover {
 
 .coin-img {
   height: 30px;
-  width: 30px;
+  width: 100%;
   margin-bottom: 0.5em;
   background-repeat: no-repeat;
   background-size: contain;
-}
-
-#coin-1000 {
-  width: 60px;
+  background-position: center;
 }
 
 .coins button {
@@ -263,21 +261,25 @@ button:hover {
 }
 
 @media screen and (max-width: 768px) {
-  body {
+  html {
     background: none;
+  }
+
+  .icon {
+    top: 2.8rem;
   }
 
   .machine {
     margin: 0;
-    padding: 1.5rem;
-    padding-top: 1em;
+    padding: 1.5rem 0;
     display: block;
     width: 100%;
     border-radius: 0;
   }
 
   .container {
-    margin-bottom: 1.5em;
+    margin-bottom: 2em;
+    border-radius: 0;
   }
 
   .input-box,
@@ -294,8 +296,12 @@ button:hover {
     width: 100%;
   }
 
+  .coin-img {
+    display: none;
+  }
+
   .drink {
-    flex: 30%;
+    flex: 40%;
   }
 
   .input-box > * {
@@ -303,6 +309,15 @@ button:hover {
   }
 
   .drink-button {
-    min-width: 20vw;
+    min-width: 150px;
+    max-width: 100%;
+  }
+
+  .drink-img {
+    height: 100px;
+  }
+
+  .output {
+    font-size: 0.8em;
   }
 }
