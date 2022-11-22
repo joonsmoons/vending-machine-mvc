@@ -23,6 +23,8 @@ const Model = (
   let machineWallet = machineWalletInput;
   let displayBalance = 0;
   let customerBalance = customerBalanceInput; // customer has adequate coins
+  const defaultMessage =
+    "투입 금액(<strong>100원 / 500원 / 10,000원</strong>)을 선택해주세요.";
 
   /**
    * status 값 설명
@@ -119,13 +121,17 @@ const Model = (
     if (selectedDrink.status === 500) {
       return {
         status: 500,
-        messages: ["투입 금액이 부족해서 선택한 음료를 구매할 수 없습니다."],
+        messages: [
+          "투입 금액이 부족해서 선택한 음료를 구매할 수 없습니다.",
+          defaultMessage,
+        ],
       };
     } else if (selectedDrink.status === 501) {
       return {
         status: 501,
         messages: [
           "자판기에 잔돈이 부족해서 선택한 음료를 구매할 수 없습니다.",
+          "다른 음료를 선택해주세요.",
         ],
       };
     } else if (selectedDrink.status === 502) {
@@ -133,6 +139,7 @@ const Model = (
         status: 502,
         messages: [
           `선택한 음료(<strong>${selectedDrink.name}</strong>) 재고가 없습니다.`,
+          "다른 음료를 선택해주세요.",
         ],
       };
     }
@@ -164,6 +171,7 @@ const Model = (
       status: 200,
       messages: [
         `선택한 음료(<strong>${selectedDrink.name}</strong>)가 나왔습니다.`,
+        `음료를 추가로 구매 할 수 있습니다.`,
       ],
     };
   };
@@ -178,12 +186,14 @@ const Model = (
     // console.log(`thank you! your change is ${totalChange}`);
     resetMachine();
     // console.log(`customer balance: ${customerBalance}`);
+    const changeMessage =
+      totalChange > 0
+        ? `전체 금액(<strong>${totalChange.toLocaleString()}원</strong>)이 반환 되었습니다.`
+        : "반환 할 잔돈이 없습니다.";
     return {
       status: 200,
       change: totalChange,
-      messages: [
-        `전체 금액(<strong>${totalChange.toLocaleString()}원</strong>)이 반환 되었습니다.`,
-      ],
+      messages: [changeMessage, defaultMessage],
     };
   };
 
