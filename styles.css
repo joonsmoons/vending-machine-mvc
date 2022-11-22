@@ -1,8 +1,18 @@
 @import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
 
-body {
+html {
+  background: url("./img/road-g97eb5072e_1920.jpg") no-repeat center center
+    fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   font-family: "나눔고딕", Nanum Gothic, "굴림", "Gulim", "sans-serif", "Tahoma";
   font-size: 14px;
+}
+
+body {
+  margin: 0;
 }
 
 h2 {
@@ -43,11 +53,11 @@ button:hover {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
   width: 750px;
-  height: 100%;
-  margin: 0 auto;
+  margin: 5vh auto;
   gap: 1rem;
   padding: 1rem;
-  background-color: #071108;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("./img/wood-g91d4f21c0_1920.jpg");
   border-radius: 1rem;
   box-sizing: border-box;
 }
@@ -252,14 +262,21 @@ button:hover {
 }
 
 @media screen and (max-width: 768px) {
+  body {
+    background: none;
+  }
+
   .machine {
     margin: 0;
+    padding: 1.5rem;
+    padding-top: 1em;
     display: block;
     width: 100%;
+    border-radius: 0;
   }
 
   .container {
-    margin-bottom: 1em;
+    margin-bottom: 1.5em;
   }
 
   .input-box,
@@ -282,5 +299,9 @@ button:hover {
 
   .input-box > * {
     margin-bottom: 1rem;
+  }
+
+  .drink-button {
+    min-width: 20vw;
   }
 }

@@ -84,16 +84,16 @@ const Model = (
       if (drink.status !== 502) drink.status = 500;
     });
     toggleAvailableDrinks();
-    console.log("machine reset!");
-    console.log(drinks);
-    console.log(`display balance: ${displayBalance}`);
-    console.log(`machine balance: ${getMachineWallet()}`);
-    console.log(machineWallet);
+    // console.log("machine reset!");
+    // console.log(drinks);
+    // console.log(`display balance: ${displayBalance}`);
+    // console.log(`machine balance: ${getMachineWallet()}`);
+    // console.log(machineWallet);
   };
 
   const insertMoney = (money) => {
     if (customerBalance < money) {
-      console.log("Not enough money!");
+      // console.log("Not enough money!");
       return { status: 400, messages: [`지갑에 돈이 부족합니다.`] };
     }
     machineWallet[money.toString()] += 1;
@@ -140,13 +140,13 @@ const Model = (
     displayBalance -= selectedDrink.price;
     selectedDrink.quantity -= 1;
     toggleAvailableDrinks();
-    console.log(`display balance: ${displayBalance}`);
-    console.log(`machine balance: ${getMachineWallet()}`);
+    // console.log(`display balance: ${displayBalance}`);
+    // console.log(`machine balance: ${getMachineWallet()}`);
     if (displayBalance < minDrinkPrice()) {
       // nothing to buy
-      console.log("nothing to buy!");
-      console.log(`display balance: ${displayBalance}`);
-      console.log(`machine balance: ${getMachineWallet()}`);
+      // console.log("nothing to buy!");
+      // console.log(`display balance: ${displayBalance}`);
+      // console.log(`machine balance: ${getMachineWallet()}`);
       const change = returnChange().change;
       const changeMessage =
         change > 0
@@ -175,9 +175,9 @@ const Model = (
     const totalChange = calculateBalance(changeObj.change);
     machineWallet = changeObj.wallet;
     customerBalance += totalChange;
-    console.log(`thank you! your change is ${totalChange}`);
+    // console.log(`thank you! your change is ${totalChange}`);
     resetMachine();
-    console.log(`customer balance: ${customerBalance}`);
+    // console.log(`customer balance: ${customerBalance}`);
     return {
       status: 200,
       change: totalChange,
@@ -212,7 +212,7 @@ const View = () => {
 
   const renderDrinks = (drinkList) => {
     drinksContainer.replaceChildren();
-    console.log(drinkList);
+    // console.log(drinkList);
     for (let drink of drinkList) {
       const drinkElement = document.createElement("div");
       let extraText = "";
@@ -235,7 +235,7 @@ const View = () => {
       ].join("");
 
       drinkElement.childNodes[1].style.backgroundColor =
-        drink.status === 200 ? "#23DC3D" : "buttonface";
+        drink.status === 200 ? "#32E875" : "buttonface";
     }
     // console.log(drinkList);
   };
@@ -260,7 +260,7 @@ const View = () => {
       e.preventDefault();
       const insertAmount = parseInt(e.target.value);
       if (e.target.className === "coin") {
-        console.log(`Inserted ${insertAmount}`);
+        // console.log(`Inserted ${insertAmount}`);
         const output = handler(insertAmount);
         renderOutput(output);
       }
