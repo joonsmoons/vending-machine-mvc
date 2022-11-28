@@ -3,6 +3,13 @@
  * 1) UI 및 백엔드 로직 구분을 위해 MVC 패턴을 사용해서 구현했습니다.
  * 2) 추가로 잔돈 계산 알고리즘을 적용해 지속해서 돈을 투입할 때마다 잔돈 여부가 계산됩니다.
  * 3) 구매할 수 있는 음료가 없을 때나 고객이 "잔돈 반환" 버튼을 누르지 않는 한 잔돈이 자동으로 반환되지 않습니다.
+ *
+ * STATUS 값 설명
+ * 400 not enough money (고객)
+ * 500 not enough money (오류 - 자판기)
+ * 501 no change available (오류 - 잔돈부족)
+ * 502 no quantity (오류 - 재고부족)
+ * 200 OK (오류 - 정상)
  */
 
 import { calculateBalance, calculateChange } from "./calculator.js";
@@ -26,14 +33,6 @@ const Model = (
   const defaultMessage =
     "투입 금액(<strong>100원 / 500원 / 10,000원</strong>)을 선택해주세요.";
 
-  /**
-   * status 값 설명
-   * 400 not enough money (고객)
-   * 500 not enough money (오류 - 자판기)
-   * 501 no change available (오류 - 잔돈부족)
-   * 502 no quantity (오류 - 재고부족)
-   * 200 OK (오류 - 정상)
-   */
   const drinks = [
     { id: 1, name: "코카콜라", price: 700, quantity: 5, status: 500 },
     { id: 2, name: "오렌지 주스", price: 1200, quantity: 5, status: 500 },
